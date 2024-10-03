@@ -7,31 +7,42 @@ public class KeyHandler implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         int code = e.getKeyCode();
-        if(code== KeyEvent.VK_W){
+
+        if(code == KeyEvent.VK_W){
+
             upPressed = true;
+
         }
         if(code== KeyEvent.VK_S){
+
             downPressed = true;
+
         }
         if(code== KeyEvent.VK_A){
+
             leftPressed = true;
+
         }
         if(code== KeyEvent.VK_D){
+
             rightPressed = true;
+
         }
-        throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
+  
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+
         int code = e.getKeyCode();
+
         if(code== KeyEvent.VK_W){
             upPressed = false;
         }
@@ -44,7 +55,7 @@ public class KeyHandler implements KeyListener{
         if(code== KeyEvent.VK_D){
             rightPressed = false;
         }
-        throw new UnsupportedOperationException("Unimplemented method 'keyReleased'");
+        
     }
     
 }
