@@ -18,6 +18,5 @@ public class Main{
 
         gamePanel.setUpGame();
         gamePanel.startGameThread();
-        System.out.println("hello");
     }
 }
