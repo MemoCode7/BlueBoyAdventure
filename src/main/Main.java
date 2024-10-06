@@ -20,5 +20,4 @@ public class Main{
         gamePanel.startGameThread();
     }
 }
-//Guys Update this Msg everytime a Video is Completed
-//Video No. = 10
+//Very Nice Game
