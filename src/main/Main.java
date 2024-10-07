@@ -2,8 +2,10 @@ package main;
 
 import javax.swing.JFrame;
 
-public class Main{
-    public static void main(String[] args) {
+public class Main
+{
+    public static void main(String[] args)
+    {
         JFrame window  = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
@@ -23,4 +25,4 @@ public class Main{
 
 //Guys keep it Updated
 //Added
-//Video No. = 13(part 11) Completed.
+//Video No. = 15(Part #13) Completed.
