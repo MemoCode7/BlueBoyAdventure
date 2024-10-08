@@ -88,14 +88,14 @@ public class UI
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN,32F));
         x += gp.tileSize;
         y += gp.tileSize;
-        //g2.drawString(currentDialogue,x,y);
+        g2.drawString(currentDialogue,x,y);
 
         //Not Working(Logical Error).
-        for(String line : currentDialogue.split("\n"))   // splits dialogue until "\n" as a line
-        {
-            g2.drawString(line,x,y);
-            y += 40;
-        }
+        // for(String line : currentDialogue.split("\n"))   // splits dialogue until "\n" as a line
+        // {
+        //     g2.drawString(line,x,y);
+        //     y += 40;
+        // }
 
     }
 
