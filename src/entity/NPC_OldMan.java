@@ -61,28 +61,8 @@ public class NPC_OldMan extends Entity {
 
     }
     public void speak(){
-        if(dialogues[dialogueIndex] == null){
-            //Once dialogues are finished, restart from dialogue[1]
-            dialogueIndex = 0;
-        }
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
-        dialogueIndex++;
-
-        //Make the NPC face the player
-        switch (gp.player.direction) {
-            case "up":
-                direction = "down";
-                break;
-            case "down":
-                direction = "up";
-                break;
-            case "right":
-                direction = "left";
-                break;
-            case "left":
-                direction = "right";
-                break;
-        }
+        //Do character specific stuff.
+       super.speak();
     }
 }
 
