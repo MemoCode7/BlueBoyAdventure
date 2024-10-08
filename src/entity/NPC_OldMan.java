@@ -26,11 +26,11 @@ public class NPC_OldMan extends Entity {
     public void setDialogue(){
 
         dialogues[0] = "Hello, lad.";
-        dialogues[1] = "So you've come to this island...";
-        dialogues[2] = "to find the treasure.";
-        dialogues[3] = "I used to be a great wizard but now...";
-        dialogues[4] = "I'm a bit too old for taking an adventure.";
-        dialogues[5] = "Well, good luck on you.";
+        dialogues[1] = "Not now , I'm Busy right now";
+        dialogues[2] = "I told you already.....\nplease";
+        dialogues[3] = "Dont you listen kid....";
+        dialogues[4] = "Chalaja Bhosdike....";
+        dialogues[5] = "Abe lodu kabse bol rha hu \nJana apna kaam kar";
 
     }
 
