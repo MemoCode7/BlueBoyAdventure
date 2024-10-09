@@ -25,5 +25,5 @@ public class Main
 
 //Guys keep it Updated
 //Added
-//Video No. = 22 Completed.
-//Part No. = #20 Completed.
+//Video No. = 23 Completed.
+//Part No. = #21 Completed.
