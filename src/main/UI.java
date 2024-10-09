@@ -35,8 +35,8 @@ public class UI
        try{
             InputStream is = getClass().getResourceAsStream("/res/font/x12y16pxMaruMonica.ttf");
             maruMonica = Font.createFont(Font.TRUETYPE_FONT, is);
-            is = getClass().getResourceAsStream("\\res\\font\\Purisa Bold.ttf");
-            purisaB = Font.createFont(Font.TRUETYPE_FONT, is);
+            // is = getClass().getResourceAsStream("\\res\\font\\Purisa Bold.ttf");
+            // purisaB = Font.createFont(Font.TRUETYPE_FONT, is);
        }catch(IOException e){
             e.printStackTrace();
        }catch(FontFormatException e){

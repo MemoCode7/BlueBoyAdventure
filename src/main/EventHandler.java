@@ -5,22 +5,24 @@ public class EventHandler {
 
     GamePanel gp;
     EventRect eventRect[] [];
+    int previousEventX, previousEventY;
+    boolean canTouchEvent = true;
 
     public EventHandler(GamePanel gp){
         this.gp = gp;
-        eventRect = new EventRect[gp.maxScreenCol][gp.maxScreenRow];
+        eventRect = new EventRect[gp.maxWorldCol][gp.maxWorldRow];
         int col = 0;
         int row = 0;
-        while (col<gp.maxScreenCol && row<gp.maxScreenRow) {
+        while (col<gp.maxWorldCol && row<gp.maxWorldRow) {
             eventRect[col][row] = new EventRect();
-            eventRect[col][row] .x = 23;
-            eventRect[col][row] .y = 23;
-            eventRect[col][row] .width = 2;
-            eventRect[col][row] .height = 2;
-            eventRect[col][row].eventRectDefaultX = eventRect[row][col].x;
+            eventRect[col][row].x = 23;
+            eventRect[col][row].y = 23;
+            eventRect[col][row].width = 2;
+            eventRect[col][row].height = 2;
+            eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
             eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
             col++;
-            if(col == gp.maxScreenCol){
+            if(col == gp.maxWorldCol){
                 col = 0;
                 row++;
             }
@@ -28,17 +30,31 @@ public class EventHandler {
     }
 
     public void checkEvent(){
-        if(hit(27,16,"right")==true){
-            damagePit(gp.dialougeState);
+
+        //Check if the player is more than 1 tile away from the last Event.
+        int xDistance = Math.abs(gp.player.worldX - previousEventX);
+        int yDistance = Math.abs(gp.player.worldY - previousEventY);
+        int distance = Math.max(xDistance, yDistance);
+        if(distance > gp.tileSize){
+            canTouchEvent = true;
         }
 
-        if(hit(23,12,"up")==true){
-            healingPool(gp.dialougeState);
+        if(canTouchEvent == true){
+
+            if(hit(27,16,"right")==true){
+                damagePit(27,16,gp.dialougeState);
+            }
+    
+            if(hit(23,12,"up")==true){
+                healingPool(23,12,gp.dialougeState);
+            }
         }
+
         if(hit(20,16,"left")==true){
             teleport(gp.dialougeState);
         }
     }
+
 
     public boolean hit(int col,int row , String reqDirection){
         boolean hit = false;
@@ -48,9 +64,12 @@ public class EventHandler {
         eventRect[col][row].x = col*gp.tileSize + eventRect[col][row].x;
         eventRect[col][row].y = row*gp.tileSize + eventRect[col][row].y;
 
-        if(gp.player.solidArea.intersects(eventRect[col][row])) {
+        if(gp.player.solidArea.intersects(eventRect[col][row])&& eventRect[col][row].eventDone==false) {
             if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
                 hit = true;
+
+                previousEventX = gp.player.worldX;
+                previousEventY = gp.player.worldY;
             }
         }
 
@@ -62,12 +81,16 @@ public class EventHandler {
         return hit;
     }
 
-    public void damagePit(int gameState){
+    public void damagePit(int col, int row, int gameState){
         gp.gameState = gameState;
         gp.ui.currentDialogue = "ALLAH HU AKHBAAARRRR....\nBOOOOOOM";
         gp.player.life -= 1;
+
+        //Event happens only once(using eventDone boolean)
+        // eventRect[col][row].eventDone = true;
+        canTouchEvent = false;
     }
-    public void healingPool(int gameState){
+    public void healingPool(int col, int row, int gameState){
         if(gp.keyH.enterPressed == true){
             gp.gameState = gameState;
             gp.ui.currentDialogue = "You drink the holy urine of baba. \nYour life has been recovered";
