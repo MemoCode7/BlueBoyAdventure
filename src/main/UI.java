@@ -257,8 +257,8 @@ public class UI
         y += gp.tileSize;
         // g2.drawString(currentDialogue,x,y);
 
-        //Not Working(Logical Error).
-        for(String line : currentDialogue.split("\n"))   // splits dialogue until "\n" as a line
+       
+        for(String line : currentDialogue.split("\n")) 
         {
             g2.drawString(line,x,y);
             y += 40;
