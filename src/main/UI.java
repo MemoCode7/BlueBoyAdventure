@@ -164,7 +164,7 @@ public class UI
     {
         int messageX = gp.tileSize;
         int messageY = gp.tileSize*4;
-        gp.setFont(gp.getFont().deriveFont(Font.BOLD, 32F));
+        g2.setFont(gp.getFont().deriveFont(Font.BOLD, 32F));
 
         for (int i=0; i < message.size(); i++)
         {
