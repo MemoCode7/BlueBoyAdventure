@@ -16,7 +16,7 @@ public class OBJ_Potion_Red extends Entity
 
         type = type_consumable;
         name = "Red Potion";
-        down1 = setup("/objects/portion_red", gp.tileSize, gp.tileSize);
+        down1 = setup("/res/objects/potion_red", gp.tileSize, gp.tileSize);
         description = "[Red Potion]\nHeals Your Life by " +value+ ".";
 
     }
