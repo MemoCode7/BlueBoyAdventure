@@ -249,6 +249,12 @@ public class Player extends Entity {
         {
             shotAvailableCounter++;
         }
+        if(life > maxLife){
+            life = maxLife;
+        }
+        if(mana > maxMana){
+            mana = maxMana;
+        }
     }
     
     public void attacking(){
@@ -306,22 +312,32 @@ public class Player extends Entity {
     {
       if(i!=999)
       {
-        String text;
 
-        if (inventory.size() != maxInventorySize)
-        {
-            inventory.add(gp.obj[i]);
-            gp.playSE(1);
-            text = "Got a " + gp.obj[i].name + "!";
+        //Pickup only items.
+        if(gp.obj[i].type == type_pickupOnly){
+            gp.obj[i].use(this);
+            gp.obj[i]=null;
         }
-        else
-        {
-            text = "You cannot carry any more!";
-        }
+        //Inventory items.
+        else{
+            String text;
 
-        gp.ui.addMessage(text);
-        gp.obj[i] = null;
-      }
+            if (inventory.size() != maxInventorySize)
+            {
+                inventory.add(gp.obj[i]);
+                gp.playSE(1);
+                text = "Got a " + gp.obj[i].name + "!";
+            }
+            else
+            {
+                text = "You cannot carry any more!";
+            }
+    
+            gp.ui.addMessage(text);
+            gp.obj[i] = null;
+
+            }
+        }
     }
     
     public void interactNPC(int i){
