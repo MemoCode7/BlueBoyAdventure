@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.AlphaComposite;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -14,6 +16,7 @@ import main.CollisionChecker;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
+import object.OBJ_Key;
 import object.OBJ_Shield_Wood;
 import object.OBJ_Sword_Normal;
 
@@ -28,6 +31,8 @@ public class Player extends Entity {
 
     public int standCounter=0; 
     public boolean attackCanceled = false;
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
 
     public Player(GamePanel gp , KeyHandler keyH){
         super(gp);
@@ -51,6 +56,7 @@ public class Player extends Entity {
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImage();
+        setItems();
     }
 
     public void setDefaultValues(){
@@ -74,6 +80,12 @@ public class Player extends Entity {
         currentShield = new OBJ_Shield_Wood(gp);
         attack = getAttack();// the totol atttak value is decided by the strength and weapon 
         defense = getDefense();// the total defense is decided by the dexterity and shield
+    }
+    public void setItems(){
+         inventory.add(currentWeapon);
+         inventory.add(currentShield);
+         inventory.add(new OBJ_Key(gp));
+         inventory.add(new OBJ_Key(gp));
     }
 
     public int getAttack(){
