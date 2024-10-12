@@ -2,7 +2,10 @@ package main;
 
 import entity.NPC_OldMan;
 import monster.MON_GreenSlime;
+import object.OBJ_Axe;
 import object.OBJ_Door;
+import object.OBJ_Key;
+import object.OBJ_Potion_Red;
 
 public class AssetSetter {
     GamePanel gp;
@@ -14,7 +17,27 @@ public class AssetSetter {
 
     public void setObject()
     {
-        
+        int i = 0;
+
+        gp.npc[i] = new OBJ_Key(gp);
+        gp.npc[i].worldX = gp.tileSize*25;
+        gp.npc[i].worldY = gp.tileSize*23;
+        i++;
+        gp.npc[i] = new OBJ_Key(gp);
+        gp.npc[i].worldX = gp.tileSize*21;
+        gp.npc[i].worldY = gp.tileSize*19;
+        i++;
+        gp.npc[i] = new OBJ_Key(gp);
+        gp.npc[i].worldX = gp.tileSize*26;
+        gp.npc[i].worldY = gp.tileSize*21;
+        i++;
+        gp.npc[i] = new OBJ_Axe(gp);
+        gp.npc[i].worldX = gp.tileSize*33;
+        gp.npc[i].worldY = gp.tileSize*21;
+        i++;
+        gp.npc[i] = new OBJ_Potion_Red(gp);
+        gp.npc[i].worldX = gp.tileSize*22;
+        gp.npc[i].worldY = gp.tileSize*27;  
     }
 
 
