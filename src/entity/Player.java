@@ -64,7 +64,7 @@ public class Player extends Entity {
         worldX = gp.tileSize*23;
         worldY = gp.tileSize*21;
 
-        speed = 4;
+        speed = 6;
         direction="down";
 
 

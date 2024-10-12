@@ -1,6 +1,7 @@
 package entity;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.annotation.Target;
 
 import javax.imageio.ImageIO;
 
@@ -158,10 +159,10 @@ public class Entity {
         int speed = generator.getParticleSeped();
         int maxLife = generator.getParticleMaxLife();
 
-        Particle p1 = new Particle(gp, generator, color, size, speed, maxLife , -2 ,-1);
-        Particle p2 = new Particle(gp, generator, color, size, speed, maxLife , 2 ,-1);
-        Particle p3 = new Particle(gp, generator, color, size, speed, maxLife , -2 ,1);
-        Particle p4 = new Particle(gp, generator, color, size, speed, maxLife , 2 ,1);
+        Particle p1 = new Particle(gp, target, color, size, speed, maxLife , -2 ,-1);
+        Particle p2 = new Particle(gp, target, color, size, speed, maxLife , 2 ,-1);
+        Particle p3 = new Particle(gp, target, color, size, speed, maxLife , -2 ,1);
+        Particle p4 = new Particle(gp, target, color, size, speed, maxLife , 2 ,1);
         gp.particleList.add(p1);
         gp.particleList.add(p2);
         gp.particleList.add(p3);
