@@ -11,7 +11,7 @@ public class Main
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("2D Adventure");
-        window.setUndecorated(true);
+          window.setUndecorated(true);
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
@@ -27,5 +27,8 @@ public class Main
 
 //Guys keep it Updated
 //Added 
-//Video No. = 34 Completed.
+//Video No. = 39 Completed.
+//Part No. = 35 Completed.
+
 //hello
+//Hey

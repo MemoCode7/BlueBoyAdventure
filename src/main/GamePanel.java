@@ -28,11 +28,13 @@ public class GamePanel extends JPanel implements Runnable{
     //World Settings
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
+
    //For full screen
    int screenWidth2 = screenWidth;
    int screenHeigth2 = screenHeigth;
    BufferedImage tempScreen;
    Graphics2D g2;
+   public boolean fullScreenOn = false;
 
     
     int FPS = 60;
@@ -66,6 +68,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int dialougeState = 3;
     public final int characterState = 4;
+    public final int optionsState = 5;
     
     int playerX = 100;
     int playerY = 100;
@@ -103,6 +106,7 @@ public class GamePanel extends JPanel implements Runnable{
         screenWidth2 = Main.window.getWidth();
         screenHeigth2 = Main.window.getHeight();
     }
+    
     public void startGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
@@ -212,6 +216,7 @@ public class GamePanel extends JPanel implements Runnable{
             //Nothing
         }
     }
+    
     public void drawToTempScreen(){
         //TITLE SCREEN 
         super.paintComponent(g2);
@@ -304,6 +309,7 @@ public class GamePanel extends JPanel implements Runnable{
         g.drawImage(tempScreen, 0, 0, screenWidth2,screenHeigth2,null);
         g.dispose();
     }
+    
     public void playMusic(int i){
         music.setFile(i);
         music.play();
