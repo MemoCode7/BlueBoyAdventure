@@ -1,6 +1,7 @@
 package main;
 import javax.swing.JPanel;
 
+import data.SaveLoad;
 import entity.Entity;
 import entity.Player;
 
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
     Config config = new Config(this);
+    SaveLoad saveLoad = new SaveLoad(this);
     Thread gameThread;
 
     //Entity and Object
