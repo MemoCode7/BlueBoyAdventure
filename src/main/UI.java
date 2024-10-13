@@ -566,7 +566,7 @@ public class UI
                 if (gp.fullScreenOn == false)
                 {
                     gp.fullScreenOn = true;
-                }
+                }   
                 else if (gp.fullScreenOn == true)
                 {
                     gp.fullScreenOn = false;
@@ -652,6 +652,8 @@ public class UI
         g2.drawRect(textX, textY, 120, 24);
         volumeWidth = 24 * gp.se.volumeScale;
         g2.fillRect(textX, textY, volumeWidth, 24);
+
+        gp.config.saveConfig();
     }
 
     public void options_fullScreenNotification(int frameX, int frameY)
